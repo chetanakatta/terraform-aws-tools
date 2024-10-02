@@ -31,7 +31,7 @@ module "jenkins_agent" {
 
 resource "aws_key_pair" "tools" {
     key_name = "tools"
-    #ypu can paste public key directly like this
+    #you can paste public key directly like this
     #public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICp86eI9ArmsJnnT2i1qyjhPVeiWwcP2jJ+TBAfuxgZf chetana@HP"
     public_key = file("~/.ssh/tools.pub")
     # ~ means windows home directory
@@ -40,7 +40,7 @@ resource "aws_key_pair" "tools" {
 module "nexus" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   name = "nexus"
-  instance_type          = "t3.small"
+  instance_type          = "t3.medium"
   vpc_security_group_ids = ["sg-035be4e538db0b944"]
   
   subnet_id = "subnet-02aa6ca8ab9efb6e3"
